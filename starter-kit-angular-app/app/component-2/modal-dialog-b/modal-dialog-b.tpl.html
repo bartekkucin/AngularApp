@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="modal-content">
+    <div class="modal-header">
+        <h3 class="modal-title">I'm a modal!</h3>
+    </div>
+    <div class="modal-body">
+    <form name="bookForm"  ng-submit="submitForm()" novalidate>
+      <div class="form-group" ng-class="{'has-error': bookForm.bookTitle.$invalid}">
+        <label for="book.title">Year:</label>
+        <input type="text" placeholder="Please write book title" class="form-control" data-ng-model="book.title" name="bookTitle" required/>
+        <span class="help-block"
+         ng-show="bookForm.bookTitle.$error.required">Required</span>
+      </div>
+      <div class="form-group" ng-class="{'has-error': bookForm.bookAuthor.$invalid}">
+        <label for="book.author">Year:</label>
+        <input type="text" placeholder="Please write book author" class="form-control" data-ng-model="book.author" name="bookAuthor" required/>
+        <span class="help-block"
+         ng-show="bookForm.bookAuthor.$error.required">Required</span>
+      </div>
+      <div class="form-group">
+        <label for="book.year">Year:</label>
+        <!-- <input class="form-control" data-ng-model="book.year" name="book.year"> -->
+        <div class="input-group">
+             <input type="text" class="form-control" datepicker-popup="{{format}}" name="dt" data-ng-model="book.year" datepicker-mode="'year'" is-open="opened" datepicker-options="dateOptions" close-text="Close" />
+              <span class="input-group-btn">
+                <button class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="book.genre">Genre:</label>
+        <input class="form-control" data-ng-model="book.genre" name="book.genre">
+      </div>
+      <button class="btn btn-primary" ng-disabled="bookForm.$invalid" type="submit">OK</button>
+  </form>
+  </div>
+    <div class="modal-footer ">
+
+    </div>
+</div>
+</body>
+</html>

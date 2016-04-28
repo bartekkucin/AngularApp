@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+<section>
+    <h2>Hello from Dialog A!</h2>
+
+    <form name="data.form">
+        <div class="form-group" data-ng-class="{'has-error bg-danger': data.form.myInput.$invalid}">
+            <input name="myInput" class="form-control" data-ng-required="true" type="text" data-ng-model="data.helloWorld"/>
+        </div>
+        <span data-ng-bind="data.helloWorld"></span>
+    </form>
+
+    <table class="table table-hover">
+        <thead>
+            <th>title</th>
+            <th>author</th>
+        </thead>
+        <tbody>
+            <tr data-ng-dblclick="edit()"
+                    data-ng-repeat="item in data.books" data-ng-click="selectRow($index)" data-ng-class="{'active': selectedRowIndex === $index}">
+                <td>{{item.title}}</td>
+                <td>{{item.author}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button data-ng-hide="selectedRowIndex === undefined" data-ng-click="edit()" class="btn btn-default">Click me</button>
+
+</section>
+
+</body>
+</html>

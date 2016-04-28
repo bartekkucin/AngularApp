@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+<section>
+    <h2>Hello from Dialog B!</h2>
+
+    <table class="table table-hover">
+        <thead>
+            <th>id</th>
+            <th>version</th>
+            <th>genre</th>
+            <th>year</th>
+            <th>title</th>
+            <th>author</th>
+        </thead>
+        <tbody>
+            <tr data-ng-dblclick="edit()"
+                    data-ng-repeat="item in data.books" data-ng-click="selectRow($index)" data-ng-class="{'active': selectedRowIndex === $index}">
+                <td>{{item.id}}</td>
+                <td>{{item.version}}</td>
+                <td>{{item.genre}}</td>
+                <td>{{item.year}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.author}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button data-ng-click="addBook()" class="btn btn-primary">Add a book!</button>
+    <button data-ng-hide="selectedRowIndex === undefined" data-ng-click="openEditModal()" class="btn btn-default">Edit me</button>
+
+</section>
+
+</body>
+</html>
